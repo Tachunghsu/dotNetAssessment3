@@ -28,11 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblSelectTagRange = new System.Windows.Forms.Label();
+            this.btnTagSelectQuery = new System.Windows.Forms.Button();
             this.lblTagSelectlSelectMeassage = new System.Windows.Forms.Label();
             this.txtTagSelectId = new System.Windows.Forms.TextBox();
             this.pnAddTag = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnAddTagImprotOwnerInfo = new System.Windows.Forms.Button();
+            this.btnScanTag = new System.Windows.Forms.Button();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.lblAddTagSN = new System.Windows.Forms.Label();
             this.btnAddTagOwnerSave = new System.Windows.Forms.Button();
             this.txtAddTagOwnerAddress = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -55,6 +65,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ownersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.animalTrackingDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.animalTrackingDataSet = new dotNetAssessment3.AnimalTrackingDataSet();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -65,11 +83,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.lblAddTagSN = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.btnScanTag = new System.Windows.Forms.Button();
-            this.btnAddTagImprotOwnerInfo = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -77,20 +90,21 @@
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ownersTableAdapter = new dotNetAssessment3.AnimalTrackingDataSetTableAdapters.OwnersTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnAddTag.SuspendLayout();
             this.pnSelectedTag.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ownersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animalTrackingDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animalTrackingDataSet)).BeginInit();
             this.panel2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -107,7 +121,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.button5);
+            this.tabPage1.Controls.Add(this.lblSelectTagRange);
+            this.tabPage1.Controls.Add(this.btnTagSelectQuery);
             this.tabPage1.Controls.Add(this.lblTagSelectlSelectMeassage);
             this.tabPage1.Controls.Add(this.txtTagSelectId);
             this.tabPage1.Controls.Add(this.pnAddTag);
@@ -122,6 +137,27 @@
             this.tabPage1.Text = "Tag";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // lblSelectTagRange
+            // 
+            this.lblSelectTagRange.AutoSize = true;
+            this.lblSelectTagRange.Font = new System.Drawing.Font("Arial Unicode MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblSelectTagRange.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblSelectTagRange.Location = new System.Drawing.Point(294, 23);
+            this.lblSelectTagRange.Name = "lblSelectTagRange";
+            this.lblSelectTagRange.Size = new System.Drawing.Size(41, 18);
+            this.lblSelectTagRange.TabIndex = 14;
+            this.lblSelectTagRange.Text = "(1-X)";
+            // 
+            // btnTagSelectQuery
+            // 
+            this.btnTagSelectQuery.Location = new System.Drawing.Point(355, 9);
+            this.btnTagSelectQuery.Name = "btnTagSelectQuery";
+            this.btnTagSelectQuery.Size = new System.Drawing.Size(99, 39);
+            this.btnTagSelectQuery.TabIndex = 13;
+            this.btnTagSelectQuery.Text = "Query";
+            this.btnTagSelectQuery.UseVisualStyleBackColor = true;
+            this.btnTagSelectQuery.Click += new System.EventHandler(this.btnTagSelectQuery_Click);
+            // 
             // lblTagSelectlSelectMeassage
             // 
             this.lblTagSelectlSelectMeassage.AutoSize = true;
@@ -134,7 +170,7 @@
             // 
             // txtTagSelectId
             // 
-            this.txtTagSelectId.Location = new System.Drawing.Point(220, 15);
+            this.txtTagSelectId.Location = new System.Drawing.Point(201, 15);
             this.txtTagSelectId.Name = "txtTagSelectId";
             this.txtTagSelectId.Size = new System.Drawing.Size(87, 29);
             this.txtTagSelectId.TabIndex = 11;
@@ -162,6 +198,70 @@
             this.pnAddTag.Size = new System.Drawing.Size(444, 418);
             this.pnAddTag.TabIndex = 10;
             this.pnAddTag.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(256, 43);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(141, 21);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "SystemMessage";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.Red;
+            this.label6.Location = new System.Drawing.Point(256, 261);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(141, 21);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "SystemMessage";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(256, 336);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(141, 21);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "SystemMessage";
+            // 
+            // btnAddTagImprotOwnerInfo
+            // 
+            this.btnAddTagImprotOwnerInfo.Location = new System.Drawing.Point(35, 138);
+            this.btnAddTagImprotOwnerInfo.Name = "btnAddTagImprotOwnerInfo";
+            this.btnAddTagImprotOwnerInfo.Size = new System.Drawing.Size(390, 34);
+            this.btnAddTagImprotOwnerInfo.TabIndex = 20;
+            this.btnAddTagImprotOwnerInfo.Text = "Import owner data from DB";
+            this.btnAddTagImprotOwnerInfo.UseVisualStyleBackColor = true;
+            // 
+            // btnScanTag
+            // 
+            this.btnScanTag.Location = new System.Drawing.Point(35, 46);
+            this.btnScanTag.Name = "btnScanTag";
+            this.btnScanTag.Size = new System.Drawing.Size(212, 30);
+            this.btnScanTag.TabIndex = 19;
+            this.btnScanTag.Text = "Scan( for testing)";
+            this.btnScanTag.UseVisualStyleBackColor = true;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(222, 11);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(203, 29);
+            this.textBox6.TabIndex = 18;
+            // 
+            // lblAddTagSN
+            // 
+            this.lblAddTagSN.AutoSize = true;
+            this.lblAddTagSN.Location = new System.Drawing.Point(46, 14);
+            this.lblAddTagSN.Name = "lblAddTagSN";
+            this.lblAddTagSN.Size = new System.Drawing.Size(160, 21);
+            this.lblAddTagSN.TabIndex = 17;
+            this.lblAddTagSN.Text = "Tag Serial Number";
             // 
             // btnAddTagOwnerSave
             // 
@@ -264,6 +364,7 @@
             this.pnSelectedTag.Name = "pnSelectedTag";
             this.pnSelectedTag.Size = new System.Drawing.Size(423, 417);
             this.pnSelectedTag.TabIndex = 3;
+            this.pnSelectedTag.Visible = false;
             // 
             // cbShowSelectedTagStatus
             // 
@@ -362,12 +463,72 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.addressDataGridViewTextBoxColumn,
+            this.phoneNumberDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.ownersBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(6, 30);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(552, 420);
+            this.dataGridView1.Size = new System.Drawing.Size(546, 420);
             this.dataGridView1.TabIndex = 13;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "firstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "lastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            this.addressDataGridViewTextBoxColumn.DataPropertyName = "address";
+            this.addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            this.addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            this.addressDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "phoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "Phone Number";
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ownersBindingSource
+            // 
+            this.ownersBindingSource.DataMember = "Owners";
+            this.ownersBindingSource.DataSource = this.animalTrackingDataSetBindingSource;
+            // 
+            // animalTrackingDataSetBindingSource
+            // 
+            this.animalTrackingDataSetBindingSource.DataSource = this.animalTrackingDataSet;
+            this.animalTrackingDataSetBindingSource.Position = 0;
+            // 
+            // animalTrackingDataSet
+            // 
+            this.animalTrackingDataSet.DataSetName = "AnimalTrackingDataSet";
+            this.animalTrackingDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // panel2
             // 
@@ -462,49 +623,6 @@
             this.tabPage3.Text = "Operator";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // lblAddTagSN
-            // 
-            this.lblAddTagSN.AutoSize = true;
-            this.lblAddTagSN.Location = new System.Drawing.Point(46, 14);
-            this.lblAddTagSN.Name = "lblAddTagSN";
-            this.lblAddTagSN.Size = new System.Drawing.Size(160, 21);
-            this.lblAddTagSN.TabIndex = 17;
-            this.lblAddTagSN.Text = "Tag Serial Number";
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(222, 11);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(203, 29);
-            this.textBox6.TabIndex = 18;
-            // 
-            // btnScanTag
-            // 
-            this.btnScanTag.Location = new System.Drawing.Point(35, 55);
-            this.btnScanTag.Name = "btnScanTag";
-            this.btnScanTag.Size = new System.Drawing.Size(212, 30);
-            this.btnScanTag.TabIndex = 19;
-            this.btnScanTag.Text = "Scan( for testing)";
-            this.btnScanTag.UseVisualStyleBackColor = true;
-            // 
-            // btnAddTagImprotOwnerInfo
-            // 
-            this.btnAddTagImprotOwnerInfo.Location = new System.Drawing.Point(35, 138);
-            this.btnAddTagImprotOwnerInfo.Name = "btnAddTagImprotOwnerInfo";
-            this.btnAddTagImprotOwnerInfo.Size = new System.Drawing.Size(390, 34);
-            this.btnAddTagImprotOwnerInfo.TabIndex = 20;
-            this.btnAddTagImprotOwnerInfo.Text = "Import owner data from DB";
-            this.btnAddTagImprotOwnerInfo.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(26, 25);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(470, 419);
-            this.dataGridView2.TabIndex = 0;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button3);
@@ -555,57 +673,31 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(34, 204);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 21);
+            this.label3.Size = new System.Drawing.Size(176, 21);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Owner Last Name:";
+            this.label3.Text = "Operator Last Name:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(34, 147);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 21);
+            this.label4.Size = new System.Drawing.Size(177, 21);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Owner First Name:";
+            this.label4.Text = "Operator First Name:";
             // 
-            // label5
+            // dataGridView2
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(256, 336);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 21);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "SystemMessage";
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(26, 25);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.Size = new System.Drawing.Size(470, 419);
+            this.dataGridView2.TabIndex = 0;
             // 
-            // label6
+            // ownersTableAdapter
             // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(256, 261);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(141, 21);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "SystemMessage";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.Red;
-            this.label7.Location = new System.Drawing.Point(256, 43);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(141, 21);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "SystemMessage";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(327, 9);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(127, 39);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Query";
-            this.button5.UseVisualStyleBackColor = true;
+            this.ownersTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -615,6 +707,7 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "Animal Tracking System";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -624,12 +717,15 @@
             this.pnSelectedTag.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ownersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animalTrackingDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animalTrackingDataSet)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -688,7 +784,17 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnTagSelectQuery;
+        private System.Windows.Forms.Label lblSelectTagRange;
+        private System.Windows.Forms.BindingSource animalTrackingDataSetBindingSource;
+        private AnimalTrackingDataSet animalTrackingDataSet;
+        private System.Windows.Forms.BindingSource ownersBindingSource;
+        private AnimalTrackingDataSetTableAdapters.OwnersTableAdapter ownersTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
     }
 }
 
